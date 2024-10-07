@@ -39,10 +39,11 @@
             <td>{{benefitsApplication.email}}</td>
             <td>{{benefitsApplication.address}}</td>
             <td>{{benefitsApplication.city}}</td>
-            <td>
-                <button (click) = "updateBenefitsApplication(benefitsApplication.id)" class = "btn  btn-secondary btn-sm"> Update</button>
-                <button (click) = "deleteBenefitsApplication(benefitsApplication.id)" class = "btn btn-danger btn-sm" style="margin-left: 10px"> Delete</button>
-                <button (click) = "detailsOfBenefitsApplication(benefitsApplication.id)" class = "btn btn-success btn-sm " style="margin-left: 10px"> View</button>
+            <td>{{benefitsApplication.approval}}</td>
+
+            <td *ngIf="IsAlreadyApprovedDeclined(benefitsApplication.approval)">
+                <button (click) = "approveBenefitsApplication(benefitsApplication.id)" class = "btn  btn-secondary btn-sm"> Approve</button>
+                <button (click) = "declineBenefitsApplication(benefitsApplication.id)" class = "btn btn-danger btn-sm" style="margin-left: 10px"> Decline</button>
             </td>
         </tr>
     </tbody>

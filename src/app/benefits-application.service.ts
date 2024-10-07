@@ -32,12 +32,12 @@ export class BenefitsApplicationService {
   }
 
   approveBenefitsApplication(id: number, benefitsApplication: BenefitsApplication): Observable<Object>{
-    
-    return this.httpClient.put(`${this.baseURL}/${id}`, benefitsApplication);
+
+    return this.httpClient.put(`${this.baseURL}/approve/${id}`, benefitsApplication);
   }
 
-  denyBenefitsApplication(id: number, benefitsApplication: BenefitsApplication): Observable<Object>{
-    return this.httpClient.put(`${this.baseURL}/${id}`, benefitsApplication);
+  declineBenefitsApplication(id: number, benefitsApplication: BenefitsApplication): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/decline/${id}`, benefitsApplication);
   }
 
   deleteBenefitsApplication(id: number): Observable<Object>{

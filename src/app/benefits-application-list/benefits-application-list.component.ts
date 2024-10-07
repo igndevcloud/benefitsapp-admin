@@ -4,7 +4,7 @@ import { BenefitsApplicationService } from '../benefits-application.service';
 import{FormsModule} from '@angular/forms'
 
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 @Component({
   standalone: true,
   imports: [CommonModule, FormsModule],
@@ -38,6 +38,30 @@ export class BenefitsApplicationListComponent {
     this.router.navigate(['updating-by-id', id]);
   }
 
+  approveBenefitsApplication(id: number){
+
+    if(confirm("Are you sure to approve BenefitsApplication ID: "+id)){
+    const benefitsApp = this.getBenefitsApplicationById(id);
+    if(benefitsApp) {
+    this.benefitsApplicationService.approveBenefitsApplication(id, benefitsApp).subscribe( data => {
+      console.log(data);
+      this.getBenefitsApplications();
+    })
+    }}
+  }
+
+  declineBenefitsApplication(id: number){
+
+    if(confirm("Are you sure to approve BenefitsApplication ID: "+id)){
+    const benefitsApp = this.getBenefitsApplicationById(id);
+    if(benefitsApp) {
+    this.benefitsApplicationService.declineBenefitsApplication(id, benefitsApp).subscribe( data => {
+      console.log(data);
+      this.getBenefitsApplications();
+    })
+    }}
+  }
+
   deleteBenefitsApplication(id: number){
 
     if(confirm("Are you sure to delete BenefitsApplication ID: "+id)){
@@ -49,5 +73,13 @@ export class BenefitsApplicationListComponent {
 
   detailsOfBenefitsApplication(id: number){
     this.router.navigate(['details-of-benefitsApplication', id]);
+  }
+
+  getBenefitsApplicationById(id: number): BenefitsApplication | undefined {
+    return this.benefitsApplications.find(benfi => benfi.id === id);
+  }
+
+  IsAlreadyApprovedDeclined(status: string) {
+    return status === 'Applied';
   }
 }
