@@ -4,9 +4,11 @@
     let-user="user"
     let-signOut="signOut"
   >
-    <h1>Hello {{user?.signInDetails?.loginId}}'s todos</h1>
+    <h1>Hello {{user?.signInDetails?.loginId}}, Here are your Benefits Applications.</h1>
 
     <app-benefits-application-list></app-benefits-application-list>
+    <router-outlet></router-outlet>
     <button (click)="signOut()">Sign Out</button>
+    <button (click)="addNewApplication()">New Application</button>
   </ng-template>
 </amplify-authenticator>

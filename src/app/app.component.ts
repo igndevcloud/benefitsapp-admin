@@ -5,6 +5,7 @@ import outputs from '../../amplify_outputs.json';
 import { AmplifyAuthenticatorModule, AuthenticatorService } from '@aws-amplify/ui-angular';
 import { BenefitsApplicationListComponent } from './benefits-application-list/benefits-application-list.component';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 Amplify.configure(outputs);
 
@@ -18,7 +19,11 @@ Amplify.configure(outputs);
 export class AppComponent {
   title = 'amplify-angular-template';
 
-  constructor(public authenticator: AuthenticatorService) {
+  constructor(public authenticator: AuthenticatorService,   private router: Router) {
     Amplify.configure(outputs);
+  }
+
+  addNewApplication(){
+    this.router.navigate(['/add-benefits-application']);
   }
 }

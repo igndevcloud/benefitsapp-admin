@@ -14,7 +14,7 @@
                     <div *ngIf="fname.errors['minlength']">First Name minimum 3 characters are required!!!</div>
                 </div>
             </div>
-
+            <br>
             <div class="form-group col-md-6">
                 <label><b>Last Name</b></label>
                 <input type="text" class="form-control" id="lname" [(ngModel)]="benefitsApplication.lname" required name="lname"
@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-            <br><br>
+            <br>
 
             <div class="form-group">
                 <label><b>Email Id</b></label>
@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            <br><br>
+            <br>
 
             <div class="form-group col-md-6">
               <label><b>Address</b></label>
@@ -49,6 +49,8 @@
               </div>
             </div>
 
+            <br>
+
             <div class="form-group col-md-6">
                 <label class="form-label"><b>City</b></label>
                 <input type="text" class="form-control" id="city" [(ngModel)]="benefitsApplication.city" required name="city"
@@ -58,8 +60,7 @@
                 </div>
             </div>
 
-            <br><br>
-
+            <br>
             <div class=" form-group col-md-6">
                      <label><b>Benefits Start Date</b></label>
                     <input type="date" class="form-control" id="startDate" [(ngModel)]="benefitsApplication.startDate"

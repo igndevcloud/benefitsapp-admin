@@ -10,7 +10,7 @@ import { BenefitsApplication } from './benefits-application';
 })
 export class BenefitsApplicationService {
 
-  private baseURL = "http://benefitsappsvc-alb-493521080.us-east-2.elb.amazonaws.com:8080/api/v1/benefitsApplications";
+  private baseURL = "http://benefitsappsvc-alb-493521080.us-east-2.elb.amazonaws.com:80/api/v1/benefitsApplications";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -31,9 +31,16 @@ export class BenefitsApplicationService {
     return this.httpClient.put(`${this.baseURL}/${id}`, benefitsApplication);
   }
 
+  approveBenefitsApplication(id: number, benefitsApplication: BenefitsApplication): Observable<Object>{
+    
+    return this.httpClient.put(`${this.baseURL}/${id}`, benefitsApplication);
+  }
+
+  denyBenefitsApplication(id: number, benefitsApplication: BenefitsApplication): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`, benefitsApplication);
+  }
+
   deleteBenefitsApplication(id: number): Observable<Object>{
     return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
-
-
 }
